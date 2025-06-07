@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+A barber porfilio website with an integrated booking api for customers.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Todo:
+✅ Phase 1: Basic Layout & Structure
+1. Set up Pages and Routing
+ Install React Router
 
-## Available Scripts
+ Create Home, Portfolio, About, Contact pages
 
-In the project directory, you can run:
+ Setup navigation bar (sticky or header layout)
 
-### `npm start`
+2. Basic Layout
+ Design homepage hero section with intro (barber bio, welcome message)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Add consistent footer across pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ Apply basic styling (CSS or Tailwind)
 
-### `npm test`
+✅ Phase 2: Portfolio + Skills + Socials
+3. Portfolio Section
+ Create a gallery layout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ Add images of past cuts/styles
 
-### `npm run build`
+ Optional: filter by category (fade, beard, kids, etc.)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Skills Section
+ List barbering skills (e.g., fades, shaves, beard trims)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ Add small icons or styled labels if desired
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Social Media Showcase
+ Add live preview links (Instagram feed, TikTok embeds, etc.)
 
-### `npm run eject`
+ Add clickable social icons linking to each profile
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+✅ Phase 3: Booking Integration
+6. Booking System
+ Research and confirm Booksy’s API or widget embed option
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Add Booksy booking button or embed iframe
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ Style booking section for mobile/responsive
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+✅ Phase 4: Final Touches
+7. Social Media Links
+ Add footer or floating icons for Instagram, TikTok, YouTube, etc.
 
-## Learn More
+ Open links in new tabs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+8. Test and Polish
+ Mobile responsiveness
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ Loading speed
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ Cross-browser testing
