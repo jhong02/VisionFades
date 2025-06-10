@@ -1,15 +1,22 @@
 import PortfolioCard from "../components/PortfolioCard";
 import '../styles/Portfolio.css';
+import designCut    from "../images/design-cut.png";
+import dropFade     from "../images/drop-fade-blowout-fringe.png";
+import flowTaper    from "../images/flow-taper.png";
+import layeredMid   from "../images/layered-middle-part.png";
+import mulletImg    from "../images/mullet.png";
+import texturedPerm from "../images/textured-perm-quarter-part.png";
+import unknown1     from "../images/unknown-cut1.png";
 
 function Portfolio(){
     const cutStyle = [
-    {src: './images/design-cut.png', label: "Design Cut"},
-    {src: './images/drop-fade-blowout-fringe.png', label: "Drop Fade Blowout Fringe"},
-    {src: './images/flow-taper.png', label: "Flow Taper"},
-    {src: './images/layered-middle-part.png', label: "Layered Middle Part"},
-    {src: './images/mullet.png', label: "Mullet"},
-    {src: './images/textured-perm-quarter-part.png', label: "Textured Perm Quarter Part"},
-    {src: './images/unknown-cut1.png', label: "Unkown Cut 1"}
+        { src: designCut,    label: "Design Cut" },
+        { src: dropFade,     label: "Drop Fade Blowout Fringe" },
+        { src: flowTaper,    label: "Flow Taper" },
+        { src: layeredMid,   label: "Layered Middle Part" },
+        { src: mulletImg,    label: "Mullet" },
+        { src: texturedPerm, label: "Textured Perm Quarter Part" },
+        { src: unknown1,     label: "Unknown Cut 1" },
 ];
     return(
         <section className = "portfolio">

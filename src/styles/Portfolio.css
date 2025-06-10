@@ -15,5 +15,9 @@
 }
 
 .portfolio-card{
-    background-color: blue;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
 }
