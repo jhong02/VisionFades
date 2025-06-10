@@ -1,0 +1,19 @@
+.title-font {
+    font-family: fantasy;
+    font: size 500px;;
+}
+
+.subtitle-font {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: grey;
+    font-size: large;
+    margin-top: -20px;
+}
+
+.portfolio-header {
+    text-align: center;
+}
+
+.portfolio-card{
+    background-color: blue;
+}

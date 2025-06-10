@@ -1,4 +1,5 @@
 import PortfolioCard from "../components/PortfolioCard";
+import '../styles/Portfolio.css';
 
 function Portfolio(){
     const cutStyle = [
@@ -13,8 +14,8 @@ function Portfolio(){
     return(
         <section className = "portfolio">
             <header className = 'portfolio-header'>
-                <h1>STYLE OFFERINGS</h1>
-                <p>For Any Special Requests Let Me Know In Your Booking</p>
+                <h1 className="title-font">STYLE OFFERINGS</h1>
+                <p className="subtitle-font">For Any Special Requests Let Me Know In Your Booking</p>
             </header>
             
             <div className = "portfolio-grid">
