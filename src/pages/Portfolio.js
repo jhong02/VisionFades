@@ -6,7 +6,6 @@ import flowTaper    from "../images/flow-taper.png";
 import layeredMid   from "../images/layered-middle-part.png";
 import mulletImg    from "../images/mullet.png";
 import texturedPerm from "../images/textured-perm-quarter-part.png";
-import unknown1     from "../images/unknown-cut1.png";
 
 function Portfolio(){
     const cutStyle = [
@@ -16,7 +15,6 @@ function Portfolio(){
         { src: layeredMid,   label: "Layered Middle Part" },
         { src: mulletImg,    label: "Mullet" },
         { src: texturedPerm, label: "Textured Perm Quarter Part" },
-        { src: unknown1,     label: "Unknown Cut 1" },
 ];
     return(
         <section className = "portfolio">
