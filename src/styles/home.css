@@ -1,0 +1,48 @@
+.video-banner-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-row {
+  display: flex;
+  height: 100%;
+}
+
+.video-banner {
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  letter-spacing: 8px;
+  font-weight: 600;
+}
+
+.book-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #222;
+}
