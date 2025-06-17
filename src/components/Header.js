@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="navbar">
-      <div className="nav-container">
+      <div className="nav-container"> 
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           vision fades
         </Link>

@@ -28,7 +28,7 @@
     display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-auto-rows: auto;
-  gap: 1rem;
+  gap: 1rem; 
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
@@ -40,6 +40,11 @@
   object-fit: cover;          /* scales and crops to fill without distortion */
   object-position: center;    /* crop around the center of the image */
   border-radius: 8px;
+  transition: transform 0.3s ease-in-out
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.1); /* Zoom in by 10% */
 }
 
 .label-caption{
