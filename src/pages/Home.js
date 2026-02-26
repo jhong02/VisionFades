@@ -1,35 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/home.css";
-import "../styles/chromeReveal.css";
 import video1 from "../assets/videos/video1.mp4";
 
 export default function Home() {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    const root = document.documentElement;
+    const el = sectionRef.current;
+    if (!el) return;
+
     let raf = 0;
+
+    const update = () => {
+      raf = 0;
+
+      const yRaw = window.scrollY - el.offsetTop;
+      const y = Math.max(0, yRaw);
+
+      // true parallax: set px offsets directly (no calc multiplication)
+      el.style.setProperty("--gradY", `${-y * 0.08}px`); // slow
+      el.style.setProperty("--svgY", `${-y * 0.18}px`);  // faster
+
+      // subtle horizontal drift so it "feels alive"
+      el.style.setProperty("--svgX", `${Math.sin(y * 0.002) * 24}px`);
+    };
 
     const onScroll = () => {
       if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-
-        const y = window.scrollY;
-
-        // loop offsets (px). tweak the multipliers for speed.
-        root.style.setProperty("--chromeOffset", `${-(y * 0.35)}px`);
-        root.style.setProperty("--shineOffset", `${-(y * 0.9)}px`);
-      });
+      raf = requestAnimationFrame(update);
     };
 
-    onScroll();
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     <>
-      {/* HERO: videos only */}
-      <div className="video-banner-container">
+      {/* HERO */}
+      <section className="video-banner-container">
         <div className="video-row">
           <video className="video-banner" src={video1} autoPlay muted loop playsInline />
           <video className="video-banner" src={video1} autoPlay muted loop playsInline />
@@ -37,19 +52,35 @@ export default function Home() {
         </div>
 
         <div className="video-overlay">
-          <h1>VISION FADES STUDIO</h1>
-          <button className="book-btn">BOOK AN APPOINTMENT</button>
+          <div>
+            <h1>VISION FADES STUDIO</h1>
+            <button className="book-btn">BOOK AN APPOINTMENT</button>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* SCROLL REVEAL: chrome wallpaper section */}
-      <section className="chrome-reveal">
-        <div className="chrome-content">
-          <h2>THE CHROME ZONE</h2>
-          <p>
-            This section is a repeating, custom SVG chrome pattern (no static PNG background).
-            As you scroll, it loops and the shine moves.
-          </p>
+      {/* PARALLAX SECTION */}
+      <section ref={sectionRef} className="home-sections">
+        <div className="home-bg" aria-hidden="true" />
+        <div className="home-svg" aria-hidden="true" />
+        <div className="home-veil" aria-hidden="true" />
+        <div className="home-grain" aria-hidden="true" />
+
+        <div className="home-content">
+          <div className="home-section">
+            <h2>ABOUT</h2>
+            <p>Welcome to Vision Fades Studio. Scroll down to see more content.</p>
+          </div>
+
+          <div className="home-section">
+            <h2>SERVICES</h2>
+            <p>Haircuts, fades, tapers, and custom requests.</p>
+          </div>
+
+          <div className="home-section">
+            <h2>BOOK</h2>
+            <p>Hit “Book an Appointment” to lock in a time.</p>
+          </div>
         </div>
       </section>
     </>
