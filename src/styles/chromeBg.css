@@ -1,0 +1,82 @@
+/* src/styles/chromeBg.css */
+
+:root {
+  --scroll: 0; /* JS updates this 0..1 */
+}
+
+/* put this inside the hero container */
+.chrome-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* base gradient (black -> deep blue -> light blue) */
+  background:
+    radial-gradient(1200px 800px at 50% 95%, rgba(122, 208, 255, 0.55), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #0b0b0d 0%, #0b0b0d 40%, #2b3fb0 78%, #7ad0ff 110%);
+}
+
+/* chrome art + scroll shine */
+.chrome-bg::before {
+  content: "";
+  position: absolute;
+  inset: -6vh -6vw;
+  z-index: 1;
+
+  /* IMPORTANT: update this path if you rename the file */
+  background-image:
+    /* chrome art */
+    url("../assets/images/chromeart.png"),
+
+    /* scroll-driven highlight/glint */
+    radial-gradient(
+      700px 420px at 55% calc(var(--scroll) * 100%),
+      rgba(255,255,255,0.40),
+      rgba(255,255,255,0.00) 60%
+    ),
+
+    /* subtle cool sheen */
+    radial-gradient(
+      900px 520px at 45% calc(var(--scroll) * 100%),
+      rgba(120, 210, 255, 0.20),
+      rgba(0,0,0,0) 65%
+    );
+
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: cover, 120% 120%, 140% 140%;
+  background-position: center, center, center;
+
+  filter: contrast(1.08) brightness(1.06) saturate(0.95);
+  opacity: 0.95;
+
+  /* keeps the shine looking “metallic” */
+  mix-blend-mode: screen;
+}
+
+/* grain + vignette */
+.chrome-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  /* film grain (SVG turbulence) */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),
+    radial-gradient(1200px 800px at 50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.55));
+
+  background-size: 220px 220px, cover;
+  background-repeat: repeat, no-repeat;
+
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+}
+
+/* optional: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .chrome-bg::before {
+    background-image: url("../assets/images/chromeart.png");
+  }
+}

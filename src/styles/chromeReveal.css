@@ -1,0 +1,83 @@
+:root{
+  --chromeOffset: 0px;
+  --shineOffset: 0px;
+}
+
+.chrome-reveal {
+  position: relative;
+  min-height: 220vh; /* makes sure scrolling reveals it */
+  overflow: hidden;
+  isolation: isolate;
+
+  /* base background gradient like your reference */
+  background:
+    radial-gradient(1200px 800px at 50% 95%, rgba(122, 208, 255, 0.55), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #0b0b0d 0%, #0b0b0d 35%, #2b3fb0 78%, #7ad0ff 115%);
+}
+
+.chrome-reveal::before {
+  content: "";
+  position: absolute;
+  inset: -6vh -6vw;
+  z-index: 0;
+  pointer-events: none;
+
+  /* chrome pattern repeats forever */
+  background-image:
+    url("../assets/images/chromePattern.svg"),
+
+    /* moving highlight glint */
+    radial-gradient(700px 420px at 55% 30%, rgba(255,255,255,0.40), rgba(255,255,255,0) 60%),
+    radial-gradient(900px 520px at 40% 70%, rgba(120,210,255,0.18), rgba(0,0,0,0) 65%);
+
+  background-repeat: repeat, no-repeat, no-repeat;
+
+  /* pattern tile size must match SVG size */
+  background-size: 1200px 900px, 140% 140%, 160% 160%;
+
+  /* THIS is what “loops while scrolling” */
+  background-position:
+    center var(--chromeOffset),
+    center var(--shineOffset),
+    center calc(var(--shineOffset) + 220px);
+
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+.chrome-reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* grain + vignette */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),
+    radial-gradient(1200px 800px at 50% 50%, rgba(0,0,0,0), rgba(0,0,0,0.55));
+
+  background-size: 220px 220px, cover;
+  background-repeat: repeat, no-repeat;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+}
+
+.chrome-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 6vw;
+  color: white;
+}
+
+.chrome-content h2 {
+  letter-spacing: 6px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.chrome-content p {
+  max-width: 720px;
+  opacity: 0.85;
+  line-height: 1.5;
+}

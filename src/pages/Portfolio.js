@@ -1,11 +1,12 @@
 import PortfolioCard from "../components/PortfolioCard";
-import '../styles/Portfolio.css';
-import designCut    from "../images/design-cut.png";
-import dropFade     from "../images/drop-fade-blowout-fringe.png";
-import flowTaper    from "../images/flow-taper.png";
-import layeredMid   from "../images/layered-middle-part.png";
-import mulletImg    from "../images/mullet.png";
-import texturedPerm from "../images/textured-perm-quarter-part.png";
+import "../styles/Portfolio.css";
+
+import designCut    from "../assets/images/design-cut.png";
+import dropFade     from "../assets/images/drop-fade-blowout-fringe.png";
+import flowTaper    from "../assets/images/flow-taper.png";
+import layeredMid   from "../assets/images/layered-middle-part.png";
+import mulletImg    from "../assets/images/mullet.png";
+import texturedPerm from "../assets/images/textured-perm-quarter-part.png";
 
 function Portfolio(){
     const cutStyle = [

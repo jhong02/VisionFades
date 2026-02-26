@@ -2,9 +2,12 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
+  isolation: isolate; /* keeps blend modes from affecting the whole page */
 }
 
 .video-row {
+  position: relative;
+  z-index: 1;
   display: flex;
   height: 100%;
 }
@@ -17,12 +20,10 @@
 
 .video-overlay {
   position: absolute;
+  z-index: 3;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 2;
 }
 
 .video-overlay h1 {
